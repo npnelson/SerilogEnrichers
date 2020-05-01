@@ -1,5 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Serilog;
+﻿using Serilog;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -12,6 +11,7 @@ namespace Microsoft.Extensions.DependencyInjection
                .Enrich.WithOSVersion()
                .Enrich.WithAspNetEnvironment()
                .Enrich.WithApplicationVersion<T>()
+               .Enrich.WithMachineName()
                .WriteTo.Seq(seqUrl, apiKey: apiKey)
                .CreateLogger();
             serviceCollection.AddLogging(lb => lb.AddSerilog(logger));
