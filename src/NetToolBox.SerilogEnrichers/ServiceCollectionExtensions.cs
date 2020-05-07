@@ -13,6 +13,7 @@ namespace Microsoft.Extensions.DependencyInjection
                .Enrich.WithApplicationVersion<T>()
                .Enrich.WithMachineName()
                .WriteTo.Seq(seqUrl, apiKey: apiKey)
+               .WriteTo.Console()
                .CreateLogger();
             serviceCollection.AddLogging(lb => lb.AddSerilog(logger));
             return serviceCollection;
