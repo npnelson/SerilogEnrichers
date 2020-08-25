@@ -4,12 +4,12 @@ namespace Microsoft.Extensions.DependencyInjection
 {
     public static class ServiceCollectionExtensions
     {
-        public static IServiceCollection AddSeqWithCommonEnrichers<T>(this IServiceCollection serviceCollection, string seqUrl, string apiKey)
+        public static IServiceCollection AddSeqWithCommonEnrichers<T>(this IServiceCollection serviceCollection, string seqUrl, string apiKey, string environmentName)
         {
             var logger = new LoggerConfiguration()
                .Enrich.WithClrVersion()
                .Enrich.WithOSVersion()
-               .Enrich.WithAspNetEnvironment()
+               .Enrich.WithProperty("Environment", environmentName)
                .Enrich.WithApplicationVersion<T>()
                .Enrich.WithMachineName()
                .WriteTo.Seq(seqUrl, apiKey: apiKey)

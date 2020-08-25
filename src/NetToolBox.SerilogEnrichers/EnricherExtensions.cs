@@ -15,6 +15,7 @@ namespace Serilog
         {
             return enrich.With<ApplicationVersionEnricher<T>>();
         }
+
         /// <summary>
         /// Adds the Runtime Version to the log
         /// </summary>
@@ -24,6 +25,7 @@ namespace Serilog
         {
             return enrich.With<ClrVersionEnricher>();
         }
+
         /// <summary>
         /// Adds the OSVersion to the log
         /// </summary>
@@ -32,15 +34,6 @@ namespace Serilog
         public static LoggerConfiguration WithOSVersion(this LoggerEnrichmentConfiguration enrich)
         {
             return enrich.With<OSVersionEnricher>();
-        }
-        /// <summary>
-        /// Adds the AspNet Environment name to the log
-        /// </summary>
-        /// <param name="enrich"></param>
-        /// <returns></returns>
-        public static LoggerConfiguration WithAspNetEnvironment(this LoggerEnrichmentConfiguration enrich)
-        {
-            return enrich.With<AspNetEnvironmentEnricher>();
         }
     }
 }
