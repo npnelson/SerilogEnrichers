@@ -11,6 +11,7 @@ namespace Microsoft.Extensions.DependencyInjection
                .Enrich.WithOSVersion()
                .Enrich.WithProperty("Environment", environmentName)
                .Enrich.WithApplicationVersion<T>()
+               .Enrich.WithAzureFunctionHostVersion()
                .Enrich.WithMachineName()
                .WriteTo.Seq(seqUrl, apiKey: apiKey)
                .WriteTo.Console()

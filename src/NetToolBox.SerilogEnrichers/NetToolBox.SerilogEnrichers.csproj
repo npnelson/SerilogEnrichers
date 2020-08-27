@@ -6,6 +6,10 @@
     <RepositoryType>git</RepositoryType>
     <Description>Collection of useful serilog enrichers as well as a quick way to configure Seq with the enrichers</Description>
     <Authors>npnelson</Authors>
+    <nullable>enable</nullable>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,5 +20,4 @@
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
     <PackageReference Include="Serilog.Sinks.Seq" Version="4.0.0" />
   </ItemGroup>
-
 </Project>

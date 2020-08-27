@@ -35,5 +35,15 @@ namespace Serilog
         {
             return enrich.With<OSVersionEnricher>();
         }
+
+        /// <summary>
+        /// Adds Azure Function Host Version to the log
+        /// </summary>
+        /// <param name="enrich"></param>
+        /// <returns></returns>
+        public static LoggerConfiguration WithAzureFunctionHostVersion(this LoggerEnrichmentConfiguration enrich)
+        {
+            return enrich.With<HostVersionEnricher>();
+        }
     }
 }
