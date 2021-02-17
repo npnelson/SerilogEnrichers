@@ -13,13 +13,13 @@ namespace Microsoft.Extensions.DependencyInjection
                 .MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Warning);
             if (!includeEFInformationLogging)
             {
-                loggerConfiguration.MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Warning);
+                loggerConfiguration = loggerConfiguration.MinimumLevel.Override("Microsoft.EntityFrameworkCore", LogEventLevel.Warning);
             }
             if (!includeAzureLogging)
             {
-                loggerConfiguration.MinimumLevel.Override("Azure-", LogEventLevel.Warning); //the Azure-Identity,Azure-Core, and Azure-Messaging-ServiceBus sourcecontexts can be quite noisy and rarely useful
+                loggerConfiguration = loggerConfiguration.MinimumLevel.Override("Azure-", LogEventLevel.Warning); //the Azure-Identity,Azure-Core, and Azure-Messaging-ServiceBus sourcecontexts can be quite noisy and rarely useful
             }
-            loggerConfiguration.Enrich.WithClrVersion()
+            loggerConfiguration = loggerConfiguration.Enrich.WithClrVersion()
             .Enrich.WithOSVersion()
             .Enrich.WithProperty("Environment", environmentName)
             .Enrich.WithApplicationVersion<T>()
