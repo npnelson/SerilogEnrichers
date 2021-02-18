@@ -19,7 +19,8 @@ namespace Microsoft.Extensions.DependencyInjection
             if (!includeAzureLogging)
             {
                 loggerConfiguration.MinimumLevel.Override("Azure-Core", LogEventLevel.Warning) //the Azure-Identity,Azure-Core, and Azure-Messaging-ServiceBus sourcecontexts can be quite noisy and rarely useful
-            .MinimumLevel.Override("Azure-Identity", LogEventLevel.Warning);
+            .MinimumLevel.Override("Azure-Identity", LogEventLevel.Warning)
+            .MinimumLevel.Override("Azure-Messaging-ServiceBus", LogEventLevel.Warning);
             }
             loggerConfiguration.Enrich.WithClrVersion()
         .Enrich.WithOSVersion()
